@@ -31,7 +31,7 @@ class Cmdl(nn.Module):
         super().__init__()
         self.isize = iz
         self.hsize = hz
-        self.layers = 1
+        self.num_layers = 1
         self.batchs = bz
         self.lstm = nn.LSTM(input_size=self.isize,
                             hidden_size=self.hsize,
