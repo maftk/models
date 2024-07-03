@@ -35,10 +35,10 @@ class Cmdl(nn.Module):
         self.batchs = bz
         self.lstm = nn.LSTM(input_size=self.isize,
                             hidden_size=self.hsize,
-                            num_layers=self.num_layers,
+                            num_layers=1,
                             batch_first=True,
                             )
-        self.dense = nn.Linear(hsize, 1)
+        self.dense = nn.Linear(hz, 1)
         # self.drop = nn.Dropout(0.2)
         # self.sm = nn.Softmax(dim=0)
 
