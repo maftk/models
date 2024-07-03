@@ -27,12 +27,12 @@ class custom1(nn.Module):
         return lineO
 
 class Cmdl(nn.Module):
-    def __init__(self, isize, hsize, batchs):
+    def __init__(self, iz, hz, bz):
         super().__init__()
-        self.isize = isize
-        self.hsize = hsize
+        self.isize = iz
+        self.hsize = hz
         self.layers = 1
-        self.batchs = batchs
+        self.batchs = bz
         self.lstm = nn.LSTM(input_size=self.isize,
                             hidden_size=self.hsize,
                             num_layers=self.layers,
@@ -42,9 +42,9 @@ class Cmdl(nn.Module):
         # self.drop = nn.Dropout(0.2)
         # self.sm = nn.Softmax(dim=0)
 
-    def forward(self, x, batch,hsize):
-        h0 = torch.zeros(self.lys, bch, hid)
-        c0 = torch.zeros(self.lys, bch, hid)
+    def forward(self, x, hz,bz):
+        h0 = torch.zeros(self.num_layers, bz, hz)
+        c0 = torch.zeros(self.num_layers, bz, hz)
         #隠れ層、cellの内部状態は使用しない。
         lstmO, (hn, cn) = self.lstm(x, (h0,c0))
         lineO = self.dense(lstmO[:,-1,:].view(x.size(0), -1))
