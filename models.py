@@ -27,7 +27,7 @@ class custom1(nn.Module):
         return lineO
 
 class Cmdl(nn.Module):
-    def __init__(self, isize, hsize, layers, batchs):
+    def __init__(self, isize, hsize, batchs):
         super().__init__()
         self.isize = isize
         self.hsize = hsize
