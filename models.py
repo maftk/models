@@ -35,7 +35,7 @@ class Cmdl(nn.Module):
         self.batchs = bz
         self.lstm = nn.LSTM(input_size=self.isize,
                             hidden_size=self.hsize,
-                            num_layers=self.layers,
+                            num_layers=self.num_layers,
                             batch_first=True,
                             )
         self.dense = nn.Linear(hsize, 1)
